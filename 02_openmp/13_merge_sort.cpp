@@ -17,6 +17,7 @@ void merge(std::vector<T>& vec, int begin, int mid, int end) {
     else
       tmp[i] = vec[right++]; 
   }
+
   for (int i=0; i<tmp.size(); i++) 
     vec[begin++] = tmp[i];
 }
@@ -41,6 +42,7 @@ int main() {
     printf("%d ",vec[i]);
   }
   printf("\n");
+  #pragma omp parallel
   merge_sort(vec, 0, n-1);
   for (int i=0; i<n; i++) {
     printf("%d ",vec[i]);
